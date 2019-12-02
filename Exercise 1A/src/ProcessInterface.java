@@ -1,6 +1,7 @@
 import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.util.List;
+import java.util.Set;
 
 public interface ProcessInterface extends Remote {
 	
@@ -16,6 +17,6 @@ public interface ProcessInterface extends Remote {
 	
 	public int[] getVector() throws RemoteException;
 	
-	
+	public Set<String> getHB() throws RemoteException;
 
 }
