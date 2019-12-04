@@ -2,12 +2,10 @@ import java.net.InetAddress;
 import java.net.MalformedURLException;
 import java.net.UnknownHostException;
 import java.rmi.AlreadyBoundException;
-import java.rmi.ConnectException;
 import java.rmi.Naming;
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
-import java.rmi.registry.Registry;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,84 +17,11 @@ public class Main {
 		int[] ports = new int[] {1099,5000,5001,5002,5003,5004,5005,5006,5007,5008,5009,5010};
 		host = InetAddress.getLocalHost().getHostAddress();
 		
-		if(args.length == 0) {
+		if(args.length == 0) {					// If eclipse is used a testcase will be loaded, otherwise input from terminal will be used in format (port,id) for each component
 			
-			// small example
-//			args = new String[16];
-//			args[0] = ""+ports[0];
-//			args[2] = ""+ports[1];
-//			args[4] = ""+ports[2];
-//			args[6] = ""+ports[3];
-//			args[8] = ""+ports[4];
-//			args[10] = ""+ports[5];
-//			args[12] = ""+ports[6];
-//			args[14] = ""+ports[7];
-//			
-//			args[1] = ""+0;
-//			args[3] = ""+2;
-//			args[5] = ""+1;
-//			args[7] = ""+3;
-//			args[9] = ""+9;
-//			args[11] = ""+6;
-//			args[13] = ""+7;
-//			args[15] = ""+5;
-			
-			
-//			// big example			
-			args = new String[24];
-			args[0] = ""+ports[0];
-			args[2] = ""+ports[1];
-			args[4] = ""+ports[2];
-			args[6] = ""+ports[3];
-			args[8] = ""+ports[4];
-			args[10] = ""+ports[5];
-			args[12] = ""+ports[6];
-			args[14] = ""+ports[7];
-			args[16] = ""+ports[8];
-			args[18] = ""+ports[9];
-			args[20] = ""+ports[10];
-			args[22] = ""+ports[11];
-			
-			args[1] = ""+8;
-			args[3] = ""+10;
-			args[5] = ""+1;
-			args[7] = ""+6;
-			args[9] = ""+2;
-			args[11] = ""+3;
-			args[13] = ""+12;
-			args[15] = ""+11;
-			args[17] = ""+5;
-			args[19] = ""+4;
-			args[21] = ""+9;
-			args[23] = ""+7;
-			
-			// example 3
-//			args = new String[8];
-//			args[0] = ""+ports[0];
-//			args[2] = ""+ports[1];
-//			args[4] = ""+ports[2];
-//			args[6] = ""+ports[3];
-//			
-//			args[1] = ""+1;
-//			args[3] = ""+2;
-//			args[5] = ""+3;
-//			args[7] = ""+4;
-			
-			// example 4
-//			args = new String[8];
-//			args[0] = ""+ports[0];
-//			args[2] = ""+ports[1];
-//			args[4] = ""+ports[2];
-//			args[6] = ""+ports[3];
-//			
-//			args[1] = ""+4;
-//			args[3] = ""+3;
-//			args[5] = ""+2;
-//			args[7] = ""+1;
+			args = new TestCases(ports).getTestCase(2);
 			
 		}
-		
-		Integer nComponents = args.length/2;
 		
 		List<Component> components = readComponents(args);
 		
