@@ -5,3 +5,4 @@ Lab exercises for the course IN4150 Distributed Algorithms. The lab exercises in
 2. Implementation of election in a unidirectional ring according to Peterson in Java/RMI
 3. Implementation of randomized byzantine agreement in Java/RMI
 
+Test
